@@ -2,37 +2,316 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#bold-c {
+  color: #1957a8;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main-navbar {
+  background-color: #1957a8;
+  height: 80px;
+  margin: 10px;
+  width: auto;
+  border-radius: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar-items {
+  padding-top: 21px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-padding {
+  padding-left: 5% !important;
+  padding-right: 5% !important;
+}
+
+.ml10{
+  margin-left: 10px !important;
+}
+/* .navbar-btn {
+  background: #fff !important;
+  padding: 5px 10px !important;
+  border-radius: 5px !important;
+  margin-left: 20px !important;
+} */
+
+.navbar-btn:hover {
+  /* background-color: #f07432 !important; */
+  background-color: #eee !important;
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.navbar-input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 7px;
+  font-size: 18px;
+}
+
+#input-width {
+  width: 30%;
+}
+
+.main-menu {
+  display: flex;
+  padding: 10px;
+  justify-content: space-around;
+  padding-left: 30%;
+  padding-right: 30%;
+  font-size: 18px;
+  box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 20%);
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.fresh-fruit {
+  font-style: italic;
+  color: #fff;
+  margin-top: -6px;
+}
+
+.fresh-fruit-footer {
+  color: rgb(25, 87, 168);
+  font-style: italic;
+  position: relative;
+  bottom: 25px;
+}
+
+.home-div {
+  background-color: #eee;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.layout-menu {
+  color: rgba(0, 0, 0, 0.87);
+  text-decoration: none;
+}
+
+.layout-menu:active {
+  background-color: #1957a8 !important;
+  color: #fff;
+}
+
+.layout-menu:hover {
+  background-color: #1957a8 !important;
+  color: #fff;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.big-slider {
+  width: 100%;
+  height: 503px;
+}
+
+.sub-slider {
+  width: 94%;
+  height: 211px;
+  padding: 10px;
+}
+
+.sideMenu {
+  height: 503px;
+  width: 20%;
+  box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 20%);
+  background-color: #fff;
+}
+
+.fruit-item {
+  background: #eee;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.heading {
+  background-color: #1957a8 !important;
+  color: #fff !important;
+}
+
+.fruit-item:hover {
+  background-color: #1957a8;
+  color: #fff;
+}
+
+.fruit-card {
+  box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 20%);
+  background-color: #fff;
+  margin-bottom: 20px;
+}
+
+.available-div .fruit-c-ml {
+  width: 18%;
+}
+
+.fruit-c-ml {
+  margin-left: 20px ! important;
+  /* width: 18%; */
+}
+
+.btn-secondary {
+  --bs-btn-color: #212529 !important;
+}
+
+h4,
+p {
+  position: relative;
+  bottom: 12px;
+}
+
+.footer-items h4 {
+  font-size: 18px !important;
+}
+
+.fruits-items {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  position: relative;
+  bottom: 17px;
+  margin-right: 20px;
+}
+
+.footer-div {
+  /* margin-top: 100px; */
+  background-color: #000021;
   color: white;
+  padding: 50px 200px 20px 200px;
 }
 
-.App-link {
-  color: #61dafb;
+.footer-items {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* .social-media {
+  position: relative;
+  top: 6px;
+} */
+
+.subs-btn {
+  display: flex;
+}
+
+h5 {
+  text-align: start;
+  margin-left: 20px;
+}
+
+.terms-head {
+  font-size: 25px;
+  font-weight: 400;
+  padding-top: 20px;
+}
+
+.terms-head-sec {
+  font-size: 25px;
+}
+
+.terms-div {
+  display: flex;
+  /* justify-content: space-around; */
+}
+
+.terms-logo {
+  margin-right: 8%;
+  width: 90px;
+  height: 81px;
+  margin-left: 15%;
+}
+
+.terms-body {
+  background-image: url('https://fruits.karnataka.gov.in/Image/Background.jpg');
+}
+
+.terms-b-box {
+  padding: 15px 20px 20px 90px;
+  width: 70%;
+  background: #fff;
+  margin-left: 15%;
+}
+
+.terms-c-box {
+  padding: 30px 60px 50px;
+  box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 20%);
+  height: 1046px;
+  overflow: scroll;
+}
+
+.cantact-div {
+  display: flex;
+  justify-content: center;
+}
+
+.sub-contact {
+  background-color: #fff;
+  width: 40%;
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.sub-contact h5 {
+  font-weight: 700;
+  text-align: center;
+}
+
+.contact-icon {
+  font-size: 45px !important;
+  margin-bottom: 10px;
+  margin-top: 15px;
+}
+
+.contact-p {
+  margin-top: 20px;
+  position: relative;
+  top: 3px;
+}
+
+.contact-input {
+  font-size: 16px !important;
+  border: none;
+  background: #eee;
+}
+
+.contact-btn {
+  width: 14%;
+  margin-top: 30px;
+}
+
+.contact-head h5 {
+  color: black;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.available-div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.available-dot{
+  background-color: green;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  margin-left: 44%;
+  position: relative;
+  top: 24px;
+}
+/* .available-dot-s{
+  width: 15px !important;
+  height: 15px !important;
+  margin-left: 15% !important;
+} */
+
+.offer{
+  display: flex !important;
+  justify-content: center !important;
 }
