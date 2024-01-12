@@ -1,89 +1,55 @@
-import React, { useState } from "react";
+import React, { useState } from "../hooks/CusModules";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import CustomButton from "../shared/CustomButton";
+import { Box } from "../hooks/CusMaterialComponents";
+import { SignIn } from "./SignIn";
+import CustomInput from "../shared/CusInput";
+import { AddCard } from "./AddCard";
 
-export default function Navbar() {
+export default function Navbar({ updateData }) {
+  const [openCard, setOpenCard] = useState(false);
   const [modal1, setModal1] = useState(false);
   const [modal2, setModal2] = useState(false);
+
   function loginFunc() {
     setModal1(true);
     setModal2(!modal2);
   }
+
   return (
-    <div className="main-navbar">
-      <div className="navbar-items navbar-padding">
-        <div>
+    <Box className="main-navbar">
+      <Box className="navbar-items navbar-padding">
+        <Box className="nav-div">
+          <img
+            src="https://image.freepik.com/free-vector/fresh-fruit-logo-design-mascot_157713-4.jpg"
+            alt=""
+            className="fruit-logo"
+          />
           <h2 className="fresh-fruit">Fresh Fruits</h2>
-        </div>
-        <div id="input-width">
-          <input type="text" className="navbar-input" placeholder="search" />
-        </div>
-        <div>
+        </Box>
+        <Box id="input-width">
+          <CustomInput
+            type="text"
+            className="navbar-input"
+            placeholder="Search"
+            // name="search"
+            // value={search}
+            onChange={(e) => updateData(e.target.value)}
+          />
+        </Box>
+        <Box>
           <CustomButton onClick={() => setModal1(true)}>Login</CustomButton>
-          <CustomButton className="navbar-btn">Add Fruit</CustomButton>
-        </div>
-      </div>
-      <div>
-        <Modal
-          isOpen={modal1}
-          modalTransition={{ timeout: 1000 }}
-          backdropTransition={{ timeout: 2000 }}
-          toggle={() => setModal1(!modal1)}
-        >
-          <ModalHeader>
-            {modal2 ? "Create" : "Login"} Your Account
-            <CustomButton className="heading ml10" onClick={loginFunc}>
-              {modal2 ? "Login" : "Sign-up"}
-            </CustomButton>
-          </ModalHeader>
-          <ModalBody>
-            {modal2 ? (
-              <div>
-                <h6>User Name</h6>
-                <input
-                  type={"text"}
-                  className="navbar-input mb-3"
-                  placeholder="Username"
-                />
-              </div>
-            ) : (
-              ""
-            )}
-            <div>
-              <h6>Email/Mobile</h6>
-              <input
-                type={"text"}
-                className="navbar-input mb-3"
-                placeholder="Email/Mobile"
-              />
-              <br></br>
-            </div>
-            <div>
-              <h6>Password</h6>
-              <input
-                type={"text"}
-                className="navbar-input mb-3"
-                placeholder="Password"
-              />
-            </div>
-          </ModalBody>
-          <ModalFooter>
-            <CustomButton
-            // className="heading"
-            >
-              {modal2 ? "Sign-up" : "Login"}
-            </CustomButton>
-            <CustomButton
-              color="secondary"
-              className="heading"
-              onClick={() => setModal1(false)}
-            >
-              Cancel
-            </CustomButton>
-          </ModalFooter>
-        </Modal>
-      </div>
-    </div>
+          <CustomButton
+            className="navbar-btn"
+            onClick={() => setOpenCard(true)}
+          >
+            Add Fruit
+          </CustomButton>
+        </Box>
+      </Box>
+
+      <SignIn {...{ modal1, setModal1, loginFunc, modal2 }} />
+      {openCard && <AddCard {...{ openCard, setOpenCard }} />}
+    </Box>
   );
 }
