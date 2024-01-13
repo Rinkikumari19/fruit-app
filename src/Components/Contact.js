@@ -33,9 +33,9 @@ export default function Contact() {
           <div className="sub-contact">
             <CallIcon className="contact-icon" />
             <h5>LET’S HAVE A CHAT!</h5>
-            <p className="contact-p">Phone: +91-8766386596</p>
-            <CustomTypography>
-              Email Address: rinki19@navgurukul.org
+            <p className="contact-p">Phone: +91-87663XXXXX</p>
+            <CustomTypography className="contact-email">
+              Email Address: dummy@gmail.com
             </CustomTypography>
             <div>
               <CustomInput

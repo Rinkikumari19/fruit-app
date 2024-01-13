@@ -1,4 +1,3 @@
-// import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import AddCallIcon from "@material-ui/icons/AddIcCall";
@@ -13,6 +12,8 @@ import YouTubeIcon from "@material-ui/icons/YouTube";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import EmailIcon from "@material-ui/icons/Email";
+import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 
 const EyeIcon = (props) => <VisibilityIcon {...props} />;
 const EyeSlashIcon = (props) => <VisibilityOff {...props} />;
@@ -28,8 +29,9 @@ const YouTubeIconA = (props) => <YouTubeIcon {...props} />;
 const LinkedInIconA = (props) => <LinkedInIcon {...props} />;
 const InstaIcon = (props) => <InstagramIcon {...props} />;
 const EmailIconA = (props) => <EmailIcon {...props} />;
+const MenuBar = (props) => <MenuIcon {...props} />;
+const CloseBar = (props) => <CloseIcon {...props} />;
 
-// export default EyeIcon;
 export {
   EyeIcon,
   EyeSlashIcon,
@@ -45,4 +47,6 @@ export {
   LinkedInIconA,
   InstaIcon,
   EmailIconA,
+  MenuBar,
+  CloseBar,
 };

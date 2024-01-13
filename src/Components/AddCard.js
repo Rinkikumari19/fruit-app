@@ -28,7 +28,6 @@ export const AddCard = ({ openCard, setOpenCard }) => {
   };
 
   const handleSubmit = () => {
-    console.log("productDetails", productDetails, errors);
     setOpenCard(false);
     setProductDetails({});
   };
@@ -78,7 +77,6 @@ export const AddCard = ({ openCard, setOpenCard }) => {
                 return <li key={i}>{error}</li>;
               })}
             </ul>
-            <br></br>
           </Box>
           <Box>
             <h6>Quantity</h6>

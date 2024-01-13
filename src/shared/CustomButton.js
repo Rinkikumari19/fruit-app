@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
     "&.MuiButton-root": {
       marginRight: 10,
       marginLeft: 10,
+      // textTransform: "capitalize",
     },
   },
 }));
@@ -16,7 +17,7 @@ export default function CustomButton({ children, ...rest }) {
 
   return (
     <Button
-      className={classes.verifyBtn}
+      className={`${classes.verifyBtn} mobile-verify-btn`}
       variant="contained"
       {...rest}
       disableElevation

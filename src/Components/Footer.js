@@ -2,8 +2,11 @@ import { React } from "../hooks/CusModules";
 import CustomInput from "../shared/CusInput";
 import CustomButton from "../shared/CustomButton";
 import { socialMediaLinks, detailHeader, footerHeader } from "../utils/common";
+import { useWidth } from "../hooks/use-width";
 
 export default function Footer() {
+  const { isMobile } = useWidth();
+
   return (
     <>
       <div className="footer-div">
@@ -21,20 +24,19 @@ export default function Footer() {
           </div>
 
           {footerHeader.map((ele, i) => (
-            <div key={i}>
+            <div key={i} className="footer-content">
               <h4>{ele.section}</h4>
               {ele.content.map((ele, index) => (
                 <p key={index}>{ele}</p>
               ))}
             </div>
           ))}
-
-          <div>
+          <div className="footer-content">
             <h4>SOCIAL</h4>
             {socialMediaLinks.map((socialMedia, index) => (
               <p key={index}>
                 {socialMedia.icon}
-                {socialMedia.name}
+                {isMobile ? null : socialMedia.name}
               </p>
             ))}
           </div>

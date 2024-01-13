@@ -85,7 +85,6 @@ export const SignIn = ({ modal1, setModal1, loginFunc, modal2 }) => {
                 return <li key={i}>{error}</li>;
               })}
             </ul>
-            <br></br>
           </Box>
           <Box>
             <h6>Password</h6>
