@@ -28,7 +28,7 @@ export default function Terms() {
         <div className="terms-body">
           <div className="terms-b-box">
             <div className="terms-c-box">
-              <p className="terms-head-sec">Website Policy</p>
+              <p className="terms-head-sec mobile-terms-head-sec">Website Policy</p>
               <div style={{ textAlign: "initial" }}>
                 <b>
                   <p id="bold-c">WEBSITE POLICIES</p>

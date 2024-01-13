@@ -5,11 +5,14 @@ import { Box } from "../hooks/CusMaterialComponents";
 import { SignIn } from "./SignIn";
 import CustomInput from "../shared/CusInput";
 import { AddCard } from "./AddCard";
+import { useWidth } from "../hooks/use-width";
+import { CloseBar, MenuBar } from "../hooks/CusMaterialIcon";
 
-export default function Navbar({ updateData }) {
+export default function Navbar({ updateData, updateMenuOpen, menuOpen }) {
   const [openCard, setOpenCard] = useState(false);
   const [modal1, setModal1] = useState(false);
   const [modal2, setModal2] = useState(false);
+  const { isMobile } = useWidth();
 
   function loginFunc() {
     setModal1(true);
@@ -27,16 +30,17 @@ export default function Navbar({ updateData }) {
           />
           <h2 className="fresh-fruit">Fresh Fruits</h2>
         </Box>
-        <Box id="input-width">
-          <CustomInput
-            type="text"
-            className="navbar-input"
-            placeholder="Search"
-            // name="search"
-            // value={search}
-            onChange={(e) => updateData(e.target.value)}
-          />
-        </Box>
+        {isMobile ? null : (
+          <Box id="input-width">
+            <CustomInput
+              type="text"
+              className="navbar-input"
+              placeholder="Search"
+              onChange={(e) => updateData(e.target.value)}
+            />
+          </Box>
+        )}
+
         <Box>
           <CustomButton onClick={() => setModal1(true)}>Login</CustomButton>
           <CustomButton
@@ -47,6 +51,31 @@ export default function Navbar({ updateData }) {
           </CustomButton>
         </Box>
       </Box>
+      {console.log("window.location.href", window.location.href)}
+      {isMobile ? (
+        <Box className="d-flex jc-sa">
+          {menuOpen ? (
+            <CloseBar
+              className="menu-icon"
+              onClick={() => updateMenuOpen(!menuOpen)}
+            />
+          ) : (
+            <MenuBar
+              className="menu-icon"
+              onClick={() => updateMenuOpen(!menuOpen)}
+            />
+          )}
+
+          <Box id="input-width">
+            <CustomInput
+              type="text"
+              className="navbar-input"
+              placeholder="Search"
+              onChange={(e) => updateData(e.target.value)}
+            />
+          </Box>
+        </Box>
+      ) : null}
 
       <SignIn {...{ modal1, setModal1, loginFunc, modal2 }} />
       {openCard && <AddCard {...{ openCard, setOpenCard }} />}

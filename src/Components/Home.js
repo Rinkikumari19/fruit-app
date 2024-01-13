@@ -8,11 +8,11 @@ import OutOfStockFood from "./FruitsItems/OutOfStockFood";
 import UpcomingFood from "./FruitsItems/UpcomingFood";
 import FruitsList from "./FruitsList";
 import { FruitsCard, FruitsSlider } from "../utils/common";
+import { useWidth } from "../hooks/use-width";
+import { SideNavbarItems } from "./SideNavbarItems";
 
-export default function Home({ searchValue }) {
-  const [food, setFood] = useState("basic");
-  console.log("data in home component", searchValue);
-
+export default function Home({ searchValue, menuValue }) {
+  const { isMobile } = useWidth();
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -31,54 +31,58 @@ export default function Home({ searchValue }) {
       items: 1,
     },
   };
+  const [food, setFood] = useState("basic");
 
   return (
     <>
       <div className=" navbar-items home-div">
-        <div className="sideMenu">
-          <div className="fruit-item heading">Your Items</div>
-          <div
-            className={`fruit-item ${food === "available" ? "active" : ""}`}
-            onClick={() => {
-              setFood("available");
-            }}
-          >
-            Available Fruits
+        {isMobile ? null : (
+          <div className="sideMenu">
+            <div className="fruit-item heading">Your Items</div>
+            <div
+              className={`fruit-item ${food === "available" ? "active" : ""}`}
+              onClick={() => {
+                setFood("available");
+              }}
+            >
+              Available Fruits
+            </div>
+            <div
+              className={`fruit-item ${food === "offer" ? "active" : ""}`}
+              onClick={() => {
+                setFood("offer");
+              }}
+            >
+              Offers on Fruits
+            </div>
+            <div
+              className={`fruit-item ${food === "healthy" ? "active" : ""}`}
+              onClick={() => {
+                setFood("healthy");
+              }}
+            >
+              Most healthy Fruits
+            </div>
+            <div
+              className={`fruit-item ${food === "upcoming" ? "active" : ""}`}
+              onClick={() => {
+                setFood("upcoming");
+              }}
+            >
+              Upcoming Fruits
+            </div>
+            <div
+              className={`fruit-item ${food === "outOfStock" ? "active" : ""}`}
+              onClick={() => {
+                setFood("outOfStock");
+              }}
+            >
+              Out of Stock Fruits
+            </div>
           </div>
-          <div
-            className={`fruit-item ${food === "offer" ? "active" : ""}`}
-            onClick={() => {
-              setFood("offer");
-            }}
-          >
-            Offers on Fruits
-          </div>
-          <div
-            className={`fruit-item ${food === "healthy" ? "active" : ""}`}
-            onClick={() => {
-              setFood("healthy");
-            }}
-          >
-            Most healthy Fruits
-          </div>
-          <div
-            className={`fruit-item ${food === "upcoming" ? "active" : ""}`}
-            onClick={() => {
-              setFood("upcoming");
-            }}
-          >
-            Upcoming Fruits
-          </div>
-          <div
-            className={`fruit-item ${food === "outOfStock" ? "active" : ""}`}
-            onClick={() => {
-              setFood("outOfStock");
-            }}
-          >
-            Out of Stock Fruits
-          </div>
-        </div>
-        <div style={{ width: "55%" }}>
+        )}
+
+        <div style={{ width: isMobile ? "100%" : "55%" }}>
           <Carousel
             responsive={responsive}
             autoPlay={true}
@@ -92,16 +96,19 @@ export default function Home({ searchValue }) {
             })}
           </Carousel>
         </div>
-        <div style={{ width: "20%" }}>
-          {FruitsCard.map((ele, i) => {
-            return (
-              <div className="fruit-card" key={i}>
-                <img className="sub-slider" src={ele.img} alt="fruit-img" />
-                <h4>{ele.name}</h4>
-              </div>
-            );
-          })}
-        </div>
+
+        {isMobile ? null : (
+          <div style={{ width: "20%" }}>
+            {FruitsCard.map((ele, i) => {
+              return (
+                <div className="fruit-card" key={i}>
+                  <img className="sub-slider" src={ele.img} alt="fruit-img" />
+                  <h4>{ele.name}</h4>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
       <div>
         {food === "available" ? (
@@ -115,9 +122,13 @@ export default function Home({ searchValue }) {
         ) : food === "outOfStock" ? (
           <OutOfStockFood data={food} searchString={searchValue} />
         ) : (
-          <FruitsList searchString={searchValue} />
+          <FruitsList data={food} searchString={searchValue} />
         )}
       </div>
+
+      {isMobile && menuValue ? (
+        <SideNavbarItems {...{ food, setFood }} />
+      ) : null}
     </>
   );
 }

@@ -3,8 +3,7 @@ import "react-multi-carousel/lib/styles.css";
 import CustomButton from "../shared/CustomButton";
 import { FruitLists } from "../utils/common";
 
-export default function FruitsList({ searchString }) {
-  console.log("searchString", searchString);
+export default function FruitsList({ searchString, data }) {
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -19,17 +18,19 @@ export default function FruitsList({ searchString }) {
       items: 2,
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
+      breakpoint: { max: 450, min: 0 },
+      items: 1.5,
     },
   };
   return (
     <>
-      <div className=" home-div">
+      <div className="home-div">
         <div>
           <Carousel responsive={responsive}>
-            {FruitLists.filter((item) =>
-              item.name.toLowerCase().includes(searchString.toLowerCase())
+            {FruitLists.filter(
+              (item) =>
+                item.name.toLowerCase().includes(searchString.toLowerCase()) &&
+                item.type.toLowerCase().includes(data.toLowerCase())
             ).map((ele, i) => {
               return (
                 <div className="fruit-card fruit-c-ml" key={i}>

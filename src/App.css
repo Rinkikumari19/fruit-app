@@ -103,6 +103,7 @@
   right: 20px;
   float: inline-end;
   bottom: 52px;
+  cursor: pointer;
 }
 
 .active {
@@ -225,6 +226,9 @@ h5 {
 .d-flex {
   display: flex;
 }
+.jc-sa{
+  justify-content: space-around;
+}
 
 .terms-logo {
   margin-right: 8%;
@@ -328,3 +332,8 @@ h5 {
   font-size: 12px;
   padding: 0;
 }
+.menu-icon{
+  color: #fff;
+  font-size: 2rem !important;
+}
+
