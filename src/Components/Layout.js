@@ -8,23 +8,30 @@ export default function Layout() {
             Home
           </NavLink>
         </div>
+
+        <div>
+          <NavLink to="/dashboard" className="layout-menu">
+            Dashboard
+          </NavLink>
+        </div>
+
         <div>
           <NavLink to="/blogs" className="layout-menu">
             Blogs
           </NavLink>
         </div>
-        <div>
-          <NavLink to="/About" className="layout-menu">
+        {/* <div>
+          <NavLink to="/about" className="layout-menu">
             About Us
           </NavLink>
-        </div>
+        </div> */}
         <div>
-          <NavLink to="/Terms" className="layout-menu">
+          <NavLink to="/terms" className="layout-menu">
             Policy
           </NavLink>
         </div>
         <div>
-          <NavLink to="/Contact" className="layout-menu">
+          <NavLink to="/contact" className="layout-menu">
             Contact
           </NavLink>
         </div>

@@ -12,7 +12,7 @@ export const FruitsStore = ({ data, searchString }) => {
           item.type.toLowerCase().includes(data.toLowerCase())
       ).map((ele, i) => {
         return (
-          <Box className="fruit-card fruit-c-ml">
+          <Box className="fruit-card fruit-c-ml" key={i}>
             <img className="sub-slider" src={ele.img} alt={ele.alt} />
             <h4>{ele.name}</h4>
             <p>{ele.qty}</p>

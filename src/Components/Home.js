@@ -11,8 +11,8 @@ import { FruitsCard, FruitsSlider } from "../utils/common";
 import { useWidth } from "../hooks/use-width";
 import { SideNavbarItems } from "./SideNavbarItems";
 
-export default function Home({ searchValue, menuValue }) {
-  const { isMobile } = useWidth();
+export default function Home({ searchData, menuOpen, updateMenuOpen }) {
+  const { width } = useWidth();
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -36,7 +36,7 @@ export default function Home({ searchValue, menuValue }) {
   return (
     <>
       <div className=" navbar-items home-div">
-        {isMobile ? null : (
+        {width <= 768 ? null : (
           <div className="sideMenu">
             <div className="fruit-item heading">Your Items</div>
             <div
@@ -82,7 +82,7 @@ export default function Home({ searchValue, menuValue }) {
           </div>
         )}
 
-        <div style={{ width: isMobile ? "100%" : "55%" }}>
+        <div style={{ width: width <= 768 ? "100%" : "55%" }}>
           <Carousel
             responsive={responsive}
             autoPlay={true}
@@ -96,8 +96,7 @@ export default function Home({ searchValue, menuValue }) {
             })}
           </Carousel>
         </div>
-
-        {isMobile ? null : (
+        {width <= 768 ? null : (
           <div style={{ width: "20%" }}>
             {FruitsCard.map((ele, i) => {
               return (
@@ -112,22 +111,22 @@ export default function Home({ searchValue, menuValue }) {
       </div>
       <div>
         {food === "available" ? (
-          <AvailableFood data={food} searchString={searchValue} />
+          <AvailableFood data={food} searchString={searchData} />
         ) : food === "offer" ? (
-          <OfferFood data={food} searchString={searchValue} />
+          <OfferFood data={food} searchString={searchData} />
         ) : food === "healthy" ? (
-          <HealthyFood data={food} searchString={searchValue} />
+          <HealthyFood data={food} searchString={searchData} />
         ) : food === "upcoming" ? (
-          <UpcomingFood data={food} searchString={searchValue} />
+          <UpcomingFood data={food} searchString={searchData} />
         ) : food === "outOfStock" ? (
-          <OutOfStockFood data={food} searchString={searchValue} />
+          <OutOfStockFood data={food} searchString={searchData} />
         ) : (
-          <FruitsList data={food} searchString={searchValue} />
+          <FruitsList data={food} searchString={searchData} />
         )}
       </div>
 
-      {isMobile && menuValue ? (
-        <SideNavbarItems {...{ food, setFood }} />
+      {width <= 768 && menuOpen ? (
+        <SideNavbarItems {...{ food, setFood, updateMenuOpen, menuOpen }} />
       ) : null}
     </>
   );

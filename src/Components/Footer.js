@@ -5,7 +5,7 @@ import { socialMediaLinks, detailHeader, footerHeader } from "../utils/common";
 import { useWidth } from "../hooks/use-width";
 
 export default function Footer() {
-  const { isMobile } = useWidth();
+  const { width } = useWidth();
 
   return (
     <>
@@ -36,7 +36,7 @@ export default function Footer() {
             {socialMediaLinks.map((socialMedia, index) => (
               <p key={index}>
                 {socialMedia.icon}
-                {isMobile ? null : socialMedia.name}
+                {width<= 768 ? null : socialMedia.name}
               </p>
             ))}
           </div>

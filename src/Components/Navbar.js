@@ -12,7 +12,7 @@ export default function Navbar({ updateData, updateMenuOpen, menuOpen }) {
   const [openCard, setOpenCard] = useState(false);
   const [modal1, setModal1] = useState(false);
   const [modal2, setModal2] = useState(false);
-  const { isMobile } = useWidth();
+  const { width } = useWidth();
 
   function loginFunc() {
     setModal1(true);
@@ -30,7 +30,7 @@ export default function Navbar({ updateData, updateMenuOpen, menuOpen }) {
           />
           <h2 className="fresh-fruit">Fresh Fruits</h2>
         </Box>
-        {isMobile ? null : (
+        {width <= 768 ? null : (
           <Box id="input-width">
             <CustomInput
               type="text"
@@ -52,7 +52,7 @@ export default function Navbar({ updateData, updateMenuOpen, menuOpen }) {
         </Box>
       </Box>
       {console.log("window.location.href", window.location.href)}
-      {isMobile ? (
+      {width <= 768 ? (
         <Box className="d-flex jc-sa">
           {menuOpen ? (
             <CloseBar

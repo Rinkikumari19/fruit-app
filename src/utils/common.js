@@ -8,12 +8,12 @@ import {
   LocationIconC,
   EmailIconA,
 } from "../hooks/CusMaterialIcon";
+import rinki1 from "../imges/rinki1.jpeg";
 
 export const FruitsSlider = [
   "https://th.bing.com/th/id/R.2a0cdb30a4389d1d13d312f11fda6209?rik=k%2bUEyQBNQo3cMA&riu=http%3a%2f%2fwww.hdwallpaper.nu%2fwp-content%2fuploads%2f2016%2f12%2ffruit-7.jpg&ehk=STxLFmebQqLHNMaQ9Z4MFRc9QR0pNF1KcNU%2f7BPhsm8%3d&risl=&pid=ImgRaw&r=0",
   "https://cdn11.bigcommerce.com/s-lzx6le/images/stencil/2560w/products/546/963/91495L__90223.1401401427.jpg?c=2",
-  // "https://www.freshproduceshoppe.com/wp-content/uploads/2018/07/fresh-fruit-delivery-in-gurgaon.jpg",
-  // "https://i1.wp.com/fruitsonline.in/wp-content/uploads/2020/04/mixfruits.jpg?resize=299%2C211&ssl=1",
+  rinki1,
 ];
 
 export const FruitsCard = [

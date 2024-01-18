@@ -226,7 +226,7 @@ h5 {
 .d-flex {
   display: flex;
 }
-.jc-sa{
+.jc-sa {
   justify-content: space-around;
 }
 
@@ -332,8 +332,18 @@ h5 {
   font-size: 12px;
   padding: 0;
 }
-.menu-icon{
+.menu-icon {
   color: #fff;
   font-size: 2rem !important;
 }
 
+.dashboard-div {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 40px 10px;
+}
+.chart-div {
+  width: 500px;
+  height: 320px;
+}

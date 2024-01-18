@@ -1,7 +1,9 @@
 import { Box } from "../../hooks/CusMaterialComponents";
 import { FruitsStore } from "./FruitsStore";
+import { useWidth } from "../../hooks/use-width";
 
 export default function OutOfStockFood({ data, searchString }) {
+  const { width } = useWidth();
   return (
     <>
       <Box className=" home-div">
@@ -9,7 +11,10 @@ export default function OutOfStockFood({ data, searchString }) {
           <u>
             <Box
               className="available-dot"
-              style={{ background: "red", marginLeft: "42%" }}
+              style={{
+                background: "red",
+                marginLeft: width <= 768 ? "25%" : "42%",
+              }}
             ></Box>
             <h5>Out Of Stock Fruits</h5>
           </u>
